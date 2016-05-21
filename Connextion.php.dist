@@ -1,0 +1,12 @@
+<?php
+//PDO connexion
+ try { 
+  $PDO = new PDO('mysql:host=yourHost;dbname=databasename', 'user', 'user_mdp');
+    $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+    $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+    $PDO->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
+    $PDO->query("SET NAMES 'utf8'");
+} catch (PDOException $exc) {
+	print_r($exc);
+    echo 'Connexion Immpossible';
+}
